@@ -8,7 +8,7 @@ export function Hero() {
             <p className="hero-kicker">About</p>
             <div className="hero-divider" />
             <p className="hero-about">{site.about}</p>
-            <a className="text-link" href="#contact">My Channels <span aria-hidden="true">↘</span></a>
+            <a className="text-link" href="#contact">My Channels </a>
         </div>
         <figure className="hero-portrait">
             <Image src={site.portrait} alt={`Portrait placeholder for ${site.name}`} width={720} height={900} priority /></figure>
