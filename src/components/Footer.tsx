@@ -1,9 +1,35 @@
+import Image from "next/image";
 import { site } from "@/content/site";
-import { FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { LetterRollNav } from "@/components/LetterRollNav";
+
+const phoneHref = `tel:${site.contact.whatsapp.replace(/\D/g, "")}`;
 
 export function Footer() {
-    return <footer className="footer page-shell" id="contact"><div className="footer-top"><div><h2>Contact</h2></div></div>
-        <div className="contact-grid"><a className="contact-link" href={`mailto:${site.contact.email}`}><span>Email</span>{site.contact.email}<i aria-hidden="true">↗</i></a><a className="contact-link" href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, "")}`}><span>WhatsApp</span>{site.contact.whatsapp}<i aria-hidden="true">↗</i></a></div>
-        <div className="footer-bottom"><div className="social-links">{site.contact.socials.map((social) => <a className="social-link" key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`Visit ${social.label}`}><span className="social-icon" aria-hidden="true">{social.label === "Instagram" ? <FaInstagram size={16} /> : <FaFacebookF size={16} />}</span><span>{social.label}</span><span aria-hidden="true">↗</span></a>)}</div><p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p></div>
+    const socials = [
+        { label: "Linkedin", href: "https://www.linkedin.com" },
+        ...site.contact.socials.map((social) => ({ label: social.label, href: social.href })),
+    ];
+
+    return <footer className="footer page-shell" id="contact">
+        <div className="footer-columns">
+            <div className="footer-column">
+                <p className="footer-column-label">Set Meeting</p>
+                <LetterRollNav ariaLabel="Set Meeting" links={[
+                    { label: "Email", href: `mailto:${site.contact.email}` },
+                    { label: "Whatsapp", href: `https://wa.me/${site.contact.whatsapp.replace(/\D/g, "")}` },
+                    { label: "Direct Call", href: phoneHref },
+                ]} />
+            </div>
+            <div className="footer-column footer-column-right">
+                <p className="footer-column-label">My Channels</p>
+                <LetterRollNav ariaLabel="My Channels" links={socials.slice(0, 3).map((social) => ({ label: social.label, href: social.href, external: true }))} />
+            </div>
+        </div>
+        <div className="footer-logo-row">
+            <Image src="/images/logo-placeholder.svg" alt="Eyad Ryad logo placeholder" width={1600} height={260} />
+        </div>
+        <div className="footer-meta">
+            <p>Copyright © 2026 EYAD RYAD, All rights reserved</p>
+        </div>
     </footer>;
 }

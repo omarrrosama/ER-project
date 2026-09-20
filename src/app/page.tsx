@@ -5,5 +5,5 @@ import { ProjectGallery } from "@/components/ProjectGallery";
 import { ProjectShowcase } from "@/components/ProjectShowcase";
 
 export default function Home() {
-  return <main><Hero /><LogoMarquee /><ProjectGallery /><ProjectShowcase /><Footer /></main>;
+    return <main id="top"><Hero /><LogoMarquee /><ProjectGallery /><ProjectShowcase /><Footer /></main>;
 }
