@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const PRELOADER = {
-  background: "#000000",
-  bar: "#f4f4f1",
-  barSize: "4px",
-  gap: "4px",
-  travel: "24px",
-  duration: "1700ms",
-  stagger: "80ms",
+  background: '#000000',
+  bar: '#f4f4f1',
+  barSize: '4px',
+  gap: '4px',
+  travel: '24px',
+  duration: '1700ms',
+  stagger: '80ms',
   minimumDisplay: 1500,
   fadeDuration: 500,
 } as const;
@@ -21,8 +21,8 @@ export function Preloader() {
   useEffect(() => {
     let sessionSeen = false;
     try {
-      sessionSeen = sessionStorage.getItem("eyad-preloader-seen") === "true";
-      if (!sessionSeen) sessionStorage.setItem("eyad-preloader-seen", "true");
+      sessionSeen = sessionStorage.getItem('eyad-preloader-seen') === 'true';
+      if (!sessionSeen) sessionStorage.setItem('eyad-preloader-seen', 'true');
     } catch {
       // A restricted storage context should still get a functional loader.
     }
@@ -33,10 +33,10 @@ export function Preloader() {
     }
 
     const startedAt = performance.now();
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const minimumDisplay = reducedMotion ? 500 : PRELOADER.minimumDisplay;
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     let fadeTimer: number | undefined;
     let finishTimer: number | undefined;
 
@@ -53,11 +53,11 @@ export function Preloader() {
       });
     };
 
-    if (document.readyState === "complete") finish();
-    else window.addEventListener("load", finish, { once: true });
+    if (document.readyState === 'complete') finish();
+    else window.addEventListener('load', finish, { once: true });
 
     return () => {
-      window.removeEventListener("load", finish);
+      window.removeEventListener('load', finish);
       if (finishTimer) window.clearTimeout(finishTimer);
       if (fadeTimer) window.clearTimeout(fadeTimer);
       document.body.style.overflow = previousOverflow;
@@ -67,32 +67,41 @@ export function Preloader() {
   if (!visible) return null;
 
   const style = {
-    "--preloader-background": PRELOADER.background,
-    "--preloader-bar": PRELOADER.bar,
-    "--preloader-bar-size": PRELOADER.barSize,
-    "--preloader-gap": PRELOADER.gap,
-    "--preloader-travel": PRELOADER.travel,
-    "--preloader-duration": PRELOADER.duration,
-    "--preloader-stagger": PRELOADER.stagger,
+    '--preloader-background': PRELOADER.background,
+    '--preloader-bar': PRELOADER.bar,
+    '--preloader-bar-size': PRELOADER.barSize,
+    '--preloader-gap': PRELOADER.gap,
+    '--preloader-travel': PRELOADER.travel,
+    '--preloader-duration': PRELOADER.duration,
+    '--preloader-stagger': PRELOADER.stagger,
   } as React.CSSProperties;
 
   return (
     <div
-      className={`fixed inset-0 z-9999 grid place-items-center opacity-100 transition-opacity duration-500 ease-in-out bg-(--preloader-background)${exiting ? " opacity-0 pointer-events-none" : ""}`}
+      className={`fixed inset-0 z-9999 grid place-items-center opacity-100 transition-opacity
+        duration-500 ease-in-out
+        bg-(--preloader-background)${exiting ? 'pointer-events-none opacity-0' : ''}`}
       style={style}
       role="status"
       aria-live="polite"
     >
       <span className="sr-only">Loading</span>
       <div
-        className="flex items-center gap-(--preloader-gap) h-[calc(var(--preloader-travel)*2+var(--preloader-bar-size)*6)]"
+        className="flex h-[calc(var(--preloader-travel)*2+var(--preloader-bar-size)*6)] items-center
+          gap-(--preloader-gap)"
         aria-hidden="true"
       >
-        {[3, 2, 1, 0].map((stagger, index) => <span
-          key={index}
-          className="block w-(--preloader-bar-size) h-(--preloader-bar-size) bg-(--preloader-bar) origin-center animate-preloader-cascade motion-reduce:animate-none"
-          style={{ animationDelay: `calc(var(--preloader-stagger) * ${stagger})` }}
-        />)}
+        {[3, 2, 1, 0].map((stagger, index) => (
+          <span
+            key={index}
+            className="animate-preloader-cascade block h-(--preloader-bar-size)
+              w-(--preloader-bar-size) origin-center bg-(--preloader-bar)
+              motion-reduce:animate-none"
+            style={{
+              animationDelay: `calc(var(--preloader-stagger) * ${stagger})`,
+            }}
+          />
+        ))}
       </div>
     </div>
   );
