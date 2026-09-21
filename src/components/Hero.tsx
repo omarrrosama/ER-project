@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 
 export function Hero() {
     return <section
-        className="relative grid min-h-100svh items-center gap-[clamp(48px,7vw,112px)] grid-cols-[minmax(0,1.05fr)_minmax(400px,.95fr)] pt-24 pr-0 pb-18 pl-13 w-[min(100%-48px,1280px)] mx-auto min-[761px]:max-[1200px]:min-h-auto min-[761px]:max-[1200px]:items-start min-[761px]:max-[1200px]:pt-0 max-[760px]:min-h-auto max-[760px]:flex max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-8.5 max-[760px]:pt-0 max-[760px]:pb-18 max-[760px]:pl-7 max-[760px]:pr-0 max-[760px]:w-[min(100%-32px,1280px)]"
+        className="relative grid min-h-100svh items-center gap-[clamp(48px,7vw,112px)] grid-cols-[minmax(0,1.05fr)_minmax(400px,.95fr)] pt-24 pr-0 pb-10 pl-13 w-[min(100%-48px,1280px)] mx-auto min-[761px]:max-[1200px]:min-h-auto min-[761px]:max-[1200px]:items-start min-[761px]:max-[1200px]:pt-0 max-[760px]:min-h-auto max-[760px]:flex max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-8.5 max-[760px]:pt-0 max-[760px]:pb-18 max-[760px]:pl-7 max-[760px]:pr-0 max-[760px]:w-[min(100%-32px,1280px)]"
         aria-labelledby="hero-title"
     >
         <div className="min-[761px]:max-[1200px]:translate-y-24 max-[760px]:order-2">
