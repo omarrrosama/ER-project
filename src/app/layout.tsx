@@ -10,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-    return <html lang="en"><body><Preloader />{children}</body></html>;
+    return <html lang="en" className="scroll-smooth motion-reduce:scroll-auto bg-page">
+        <body className="bg-page text-ink font-sans">
+            <Preloader />{children}
+        </body>
+    </html>;
 }

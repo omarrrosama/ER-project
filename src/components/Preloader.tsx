@@ -77,13 +77,22 @@ export function Preloader() {
   } as React.CSSProperties;
 
   return (
-    <div className={`preloader${exiting ? " is-exiting" : ""}`} style={style} role="status" aria-live="polite">
+    <div
+      className={`fixed inset-0 z-9999 grid place-items-center opacity-100 transition-opacity duration-500 ease-in-out bg-(--preloader-background)${exiting ? " opacity-0 pointer-events-none" : ""}`}
+      style={style}
+      role="status"
+      aria-live="polite"
+    >
       <span className="sr-only">Loading</span>
-      <div className="preloader-bars" aria-hidden="true">
-        <span className="preloader-bar" />
-        <span className="preloader-bar" />
-        <span className="preloader-bar" />
-        <span className="preloader-bar" />
+      <div
+        className="flex items-center gap-(--preloader-gap) h-[calc(var(--preloader-travel)*2+var(--preloader-bar-size)*6)]"
+        aria-hidden="true"
+      >
+        {[3, 2, 1, 0].map((stagger, index) => <span
+          key={index}
+          className="block w-(--preloader-bar-size) h-(--preloader-bar-size) bg-(--preloader-bar) origin-center animate-preloader-cascade motion-reduce:animate-none"
+          style={{ animationDelay: `calc(var(--preloader-stagger) * ${stagger})` }}
+        />)}
       </div>
     </div>
   );
