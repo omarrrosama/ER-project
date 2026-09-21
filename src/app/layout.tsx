@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Eyad Ryad",
     description: "The portfolio and selected work of Eyad Ryad, a real estate marketing expert.",
     openGraph: { title: "Eyad Ryad", description: "Selected work and signature projects by Eyad Ryad.", type: "website" },
-    icons: { icon: ".././public/favicon.svg" },
+    icons: { icon: "/icon.svg" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

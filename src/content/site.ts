@@ -26,6 +26,6 @@ export const site = {
     ],
     contact: {
         email: "eyad@er-creatives.com", whatsapp: "+20 10 66288890",
-        socials: [{ label: "Instagram", href: "https://www.instagram.com/eyad.ryad" }, { label: "Facebook", href: "https://www.facebook.com/eyadryadd/" }] satisfies Social[],
+        socials: [{ label: "Instagram", href: "https://www.instagram.com/eyad.ryad" }, { label: "Facebook", href: "https://www.facebook.com/eyadryadd/" }, { label: "LinkedIn", href: "https://www.linkedin.com/in/eyadryad/" }] satisfies Social[],
     },
 } as const;
