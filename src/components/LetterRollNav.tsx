@@ -29,8 +29,8 @@ export function LetterRollNav({ ariaLabel, links }: LetterRollNavProps) {
         >
             <span className="inline-flex whitespace-nowrap" aria-hidden="true">
                 {Array.from(link.label).map((letter, index) => <span className="inline-block h-[1.3em] overflow-hidden align-bottom" style={{ "--i": index } as CSSProperties} key={`${letter}-${index}`}>
-                    <span className="block h-[1.3em] leading-[1.3em] translate-y-0 transition-transform duration-300 ease-[cubic-bezier(.76,0,.24,1)] [transition-delay:calc(var(--i)*25ms)] motion-reduce:transition-none group-hover:-translate-y-full group-focus-visible:-translate-y-full">{letter === " " ? "\u00a0" : letter}</span>
-                    <span className="block h-[1.3em] leading-[1.3em] translate-y-0 transition-transform duration-300 ease-[cubic-bezier(.76,0,.24,1)] [transition-delay:calc(var(--i)*25ms)] motion-reduce:transition-none group-hover:-translate-y-full group-focus-visible:-translate-y-full">{letter === " " ? "\u00a0" : letter}</span>
+                    <span className="block h-[1.3em] leading-[1.3em] translate-y-0 transition-transform duration-300 ease-[cubic-bezier(.76,0,.24,1)] delay-[calc(var(--i)*25ms)] motion-reduce:transition-none group-hover:-translate-y-full group-focus-visible:-translate-y-full">{letter === " " ? "\u00a0" : letter}</span>
+                    <span className="block h-[1.3em] leading-[1.3em] translate-y-0 transition-transform duration-300 ease-[cubic-bezier(.76,0,.24,1)] delay-[calc(var(--i)*25ms)] motion-reduce:transition-none group-hover:-translate-y-full group-focus-visible:-translate-y-full">{letter === " " ? "\u00a0" : letter}</span>
                 </span>)}
             </span>
         </a>)}

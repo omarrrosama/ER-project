@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 
 export function ProjectGallery() {
     return <section
-        className="pb-40 w-[min(100%-48px,1280px)] mx-auto max-[760px]:pb-27.5 max-[760px]:w-[min(100%-32px,1280px)]"
+        className="pb-20 w-[min(100%-48px,1280px)] mx-auto max-[760px]:pb-15 max-[760px]:w-[min(100%-32px,1280px)]"
         aria-labelledby="gallery-title"
     >
         <div className="flex justify-between items-center border-t border-line pt-3.5">
