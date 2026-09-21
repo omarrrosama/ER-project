@@ -426,14 +426,36 @@ figcaption {
     line-height: 1.5;
 }
 
-.project-tabs {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+.project-tabs-mask {
+    container-type: inline-size;
+    overflow: hidden;
+    position: relative;
+    width: min(100%, 1720px);
     margin-top: 56px;
     border-bottom: 1px solid var(--line);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.project-tabs {
+    display: flex;
+    width: max-content;
+    animation: project-tabs-scroll 40s linear infinite;
+}
+
+.showcase-interactive:hover .project-tabs,
+.showcase-interactive:focus-within .project-tabs {
+    animation-play-state: paused;
+}
+
+@keyframes project-tabs-scroll {
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .project-tab {
+    width: 25cqw;
+    flex: 0 0 auto;
     min-height: 92px;
     display: grid;
     place-items: center;
@@ -446,10 +468,6 @@ figcaption {
     cursor: pointer;
     opacity: .38;
     transition: opacity 1s ease, background 1s ease;
-}
-
-.project-tab:last-child {
-    border-right: 1px solid var(--line);
 }
 
 .project-tab:hover,
@@ -664,6 +682,12 @@ figcaption {
         width: 100%;
         transform: none;
     }
+
+    .project-tabs {
+        flex-wrap: wrap;
+        width: 100%;
+        transform: none;
+    }
 }
 
 @media (max-width: 760px) {
@@ -751,16 +775,9 @@ figcaption {
         scroll-snap-align: start;
     }
 
-    .project-tabs {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .project-tab:nth-child(n+4) {
-        border-top: 1px solid var(--line);
-    }
-
-    .project-tab:nth-child(4) {
-        border-left: 0;
+    .project-tab {
+        width: 50cqw;
+        min-height: 76px;
     }
 
     .project-detail {
