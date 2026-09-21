@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { site } from "@/content/site";
 
 export function Hero() {
     return <section
-        className="relative grid min-h-100svh items-center gap-[clamp(48px,7vw,112px)] grid-cols-[minmax(0,1.05fr)_minmax(400px,.95fr)] pt-24 pr-0 pb-10 pl-13 w-[min(100%-48px,1280px)] mx-auto min-[761px]:max-[1200px]:min-h-auto min-[761px]:max-[1200px]:items-start min-[761px]:max-[1200px]:pt-0 max-[760px]:min-h-auto max-[760px]:flex max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-8.5 max-[760px]:pt-0 max-[760px]:pb-18 max-[760px]:pl-7 max-[760px]:pr-0 max-[760px]:w-[min(100%-32px,1280px)]"
+        className="relative grid min-h-100svh items-center gap-[clamp(48px,7vw,112px)] grid-cols-[minmax(0,1.05fr)_minmax(400px,.95fr)] pt-24 pr-0 pb-10 pl-13 w-[min(100%-48px,1280px)] mx-auto min-[761px]:max-[1200px]:min-h-auto min-[761px]:max-[1200px]:items-start min-[761px]:max-[1200px]:pt-0 max-[760px]:min-h-auto max-[760px]:flex max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-8.5 max-[760px]:pt-0 max-sm:pb-0 max-[760px]:pl-7 max-[760px]:pr-0 max-[760px]:w-[min(100%-32px,1280px)]"
         aria-labelledby="hero-title"
     >
         <div className="min-[761px]:max-[1200px]:translate-y-24 max-[760px]:order-2">
@@ -11,11 +12,17 @@ export function Hero() {
             <p className="mt-0 mb-4 text-muted text-[11px] font-semibold tracking-[3px] max-[760px]:text-[10px] max-[760px]:tracking-[2.5px] max-[760px]:mb-3">About</p>
             <div className="w-13.5 h-1 mb-6 bg-ink max-[760px]:w-10.5 max-[760px]:h-0.75 max-[760px]:mb-5" />
             <p className="m-0 max-w-xl text-muted text-base leading-[1.65] max-[760px]:max-w-[85%] max-[760px]:text-[15px]">{site.about}</p>
-            <a
-                className="inline-flex items-center gap-2.5 min-h-11 mt-9.5 pb-0.75 border-b border-ink text-[11px] font-semibold uppercase tracking-[.12em] focus-visible:outline focus-visible:outline-ink focus-visible:outline-offset-[5px]"
-
+            <Link
+                className="group inline-flex items-center gap-3 min-h-11 mt-8  pl-5 pr-1.5 py-1.5 rounded-full border border-ink text-[11px] font-semibold uppercase tracking-[.12em] transition-colors duration-300 hover:border-ink/60 focus-visible:outline focus-visible:outline-ink focus-visible:outline-offset-[5px]"
                 href="#contact"
-            >My Channels </a>
+            >
+                My Channels
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink text-page transition-transform duration-300 group-hover:rotate-45">
+                    <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </span>
+            </Link>
         </div>
         <figure className="m-0 max-[760px]:order-1 max-[760px]:self-end max-[760px]:w-[60%] max-[760px]:pb-1.75 max-[760px]:pl-1.75 max-[760px]:rounded-bl-[150px]">
             <Image
