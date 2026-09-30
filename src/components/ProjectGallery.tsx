@@ -31,12 +31,7 @@ export function ProjectGallery() {
               className="aspect-[1.2] w-full object-cover grayscale transition-transform
                 duration-700 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.04]"
             />
-            <figcaption
-              className="text-ink absolute bottom-3.5 left-4 mt-3 text-xs font-bold tracking-[.14em]
-                uppercase"
-            >
-              0{index + 1}
-            </figcaption>
+
           </figure>
         ))}
       </div>
